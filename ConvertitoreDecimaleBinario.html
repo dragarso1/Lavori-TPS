@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Conversione</title>
+        <h1>Convertitore Decimale In Binario</h1>
+    </head>
+    <body>
+        <input type = "text" id = "numero">
+        <button id = "pulsante" onclick = "convertitore()">Converti</button>
+        <p id = "paragrap"></p>
+        <script>
+            function convertitore() {
+                let numero = parseInt(document.getElementById("numero").value)
+                let numeroBinario = ""
+                while (numero > 0) {
+                    let resto = numero % 2
+                    numeroBinario = resto + numeroBinario
+                    numero = Math.floor(numero / 2) 
+                }
+                document.getElementById("paragrap").innerHTML = numeroBinario
+            }
+        </script>
+    </body>
+</html>

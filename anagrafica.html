@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Anagrafica 1.0</title>
+    </head>
+
+    <body>
+
+        <h1>Anagrafica 1.0</h1>
+
+        <p>
+            Nome
+            <br>
+            <input type="text" id="nome">
+            <br>
+
+            Cognome
+            <br>
+            <input type="text" id="cognome">
+            <br>
+
+            Età
+            <br>
+            <input type="number" id="eta">
+            <br>
+
+            Sesso
+            <br>
+            <input type="radio" id="sesso1" name="sesso">
+            M
+            <br>
+            <input type="radio" id="sesso2" name="sesso">
+            F
+            <br>
+            <input type="radio" id="sesso3" name="sesso">
+            Altro
+            <br>
+
+            Indirizzo
+            <br>
+            <input type="text" id="indirizzo">
+            <br>
+
+            Città
+            <br>
+            <input type="text" id="citta">
+            <br>
+
+            Provincia
+            <br>
+            <select id="provincia">
+                <option value="">Seleziona una provincia</option>
+                <option value="Milano">Milano</option>
+                <option value="Roma">Roma</option>
+                <option value="Torino">Torino</option>
+                <option value="Napoli">Napoli</option>
+            </select>
+            <br>
+
+            Sport
+            <br>
+            <input type="checkbox" id="sport1"> Calcio
+            <br>
+            <input type="checkbox" id="sport2"> Atletica
+            <br>
+            <input type="checkbox" id="sport3"> Pallavolo
+            <br>
+            <input type="checkbox" id="sport4"> Tennis
+            <br>
+            <input type="checkbox" id="sport5"> Nuoto
+            <br>
+
+            Commenti (inserire eventuali commenti)
+            <br>
+            <textarea id="commenti"></textarea>
+        </p>
+
+        <button id="pulsante" onclick="tabella()">Conferma</button>
+
+        <h2>Riepilogo</h2>
+
+        <table border="1">
+            <tr>
+                <th>Campo</th>
+                <th>Valore</th>
+            </tr>
+
+            <tbody id="risultato">
+            </tbody>
+        </table>
+
+        <br>
+
+        <button onclick="window.print()">Stampa</button>
+
+        <script>
+
+            function tabella() {
+
+                let nome = document.getElementById("nome").value;
+                let cognome = document.getElementById("cognome").value;
+                let eta = document.getElementById("eta").value;
+
+                let sesso1 = document.getElementById("sesso1").checked;
+                let sesso2 = document.getElementById("sesso2").checked;
+                let sesso3 = document.getElementById("sesso3").checked;
+
+                let sesso = "";
+
+                if (sesso1 == true) {
+                    sesso = "M";
+                }
+
+                if (sesso2 == true) {
+                    sesso = "F";
+                }
+
+                if (sesso3 == true) {
+                    sesso = "Altro";
+                }
+
+                let indirizzo = document.getElementById("indirizzo").value;
+                let citta = document.getElementById("citta").value;
+                let provincia = document.getElementById("provincia").value;
+
+                let sport1 = document.getElementById("sport1").checked;
+                let sport2 = document.getElementById("sport2").checked;
+                let sport3 = document.getElementById("sport3").checked;
+                let sport4 = document.getElementById("sport4").checked;
+                let sport5 = document.getElementById("sport5").checked;
+
+                let sport = "";
+
+                if (sport1 == true) {
+                    sport += "Calcio ";
+                }
+
+                if (sport2 == true) {
+                    sport += "Atletica ";
+                }
+
+                if (sport3 == true) {
+                    sport += "Pallavolo ";
+                }
+
+                if (sport4 == true) {
+                    sport += "Tennis ";
+                }
+
+                if (sport5 == true) {
+                    sport += "Nuoto ";
+                }
+
+                let commenti = document.getElementById("commenti").value;
+
+                document.getElementById("risultato").innerHTML =
+
+                    "<tr><td>Nome</td><td>" + nome + "</td></tr>" +
+
+                    "<tr><td>Cognome</td><td>" + cognome + "</td></tr>" +
+
+                    "<tr><td>Età</td><td>" + eta + "</td></tr>" +
+
+                    "<tr><td>Sesso</td><td>" + sesso + "</td></tr>" +
+
+                    "<tr><td>Indirizzo</td><td>" + indirizzo + "</td></tr>" +
+
+                    "<tr><td>Città</td><td>" + citta + "</td></tr>" +
+
+                    "<tr><td>Provincia</td><td>" + provincia + "</td></tr>" +
+
+                    "<tr><td>Sport</td><td>" + sport + "</td></tr>" +
+
+                    "<tr><td>Commenti</td><td>" + commenti + "</td></tr>";
+
+            }
+
+        </script>
+
+    </body>
+</html>

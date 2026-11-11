@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Binario -> Esadecimale</title>
+            <h1>Binario -> Esadecimale</h1>
+        </head>
+        <body>
+            <p>Inserire stringa binaria</p>
+            <input type="text" id="binario">
+            <button onclick="conversione()" id="pulsante">Converti</button>
+			<p id="paragrap"></p>
+            <script>
+                function conversione() {
+                    let stringaBinaria = document.getElementById("binario").value
+                    let stringaEsadecimale = ""
+					while (stringaBinaria.length % 4 != 0) {
+						stringaBinaria = 0 + stringaBinaria
+					}
+                    for (let i = 0; i < stringaBinaria.length; i+= 4) {
+                        quartetto = stringaBinaria.substring(i, i + 4)
+                        switch (quartetto) {
+							case "0000":
+								stringaEsadecimale += "0"
+								break
+							case "0001":
+								stringaEsadecimale += "1"
+								break
+							case "0010":
+								stringaEsadecimale += "2"
+								break
+							case "0011":
+								stringaEsadecimale += "3"
+								break
+							case "0100":
+								stringaEsadecimale += "4"
+								break
+							case "0101":
+								stringaEsadecimale += "5"
+								break
+							case "0110":
+								stringaEsadecimale += "6"
+								break
+							case "0111":
+								stringaEsadecimale += "7"
+								break
+							case "1000":
+								stringaEsadecimale += "8"
+								break
+							case "1001":
+								stringaEsadecimale += "9"
+								break
+							case "1010":
+								stringaEsadecimale += "A"
+								break
+							case "1011":
+								stringaEsadecimale += "B"
+								break
+							case "1100":
+								stringaEsadecimale += "C"
+								break
+							case "1101":
+								stringaEsadecimale += "D"
+								break
+							case "1110":
+								stringaEsadecimale += "E"
+								break
+							case "1111":
+								stringaEsadecimale += "F"
+								break
+							default:
+								stringaEsadecimale += "0"
+						}
+                    }
+					document.getElementById("paragrap").innerHTML = stringaEsadecimale
+                }
+            </script>
+        </body>
+    </html>
